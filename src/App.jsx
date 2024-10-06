@@ -8,6 +8,8 @@ import Question from "./components/Question";
 import NextButton from "./components/NextButton";
 import Progress from "./components/Progress";
 import FinishScreen from "./components/FinishScreen";
+import Footer from "./components/Footer";
+import Timer from "./components/Timer";
 
 const initialState = {
   questions: [],
@@ -15,6 +17,8 @@ const initialState = {
   index: 0,
   answer: null,
   scores : 0,
+  highScore: 0,
+  secondsRemaining: 10,
 };
 // all state transitons are handled in the reducer
 function reducer(state, action) {
@@ -43,13 +47,30 @@ function reducer(state, action) {
         index: state.index + 1,
         answer: null,
       };
+    case "finished":
+      return {
+        ...state,
+        status: "finished",
+        highScore: state.scores > state.highScore ? state.scores : state.highScore,
+      };
+    case "restart":
+      return {
+        ...initialState, questions: state.questions,
+        highScore: state.highScore,
+        status: "ready",
+      };
+    case "tick":
+      return {
+        ...state,
+        secondsRemaining: state.secondsRemaining - 1,
+      };
     default:
       throw new Error("Action unknown");
   }
 }
 
 export default function App() {
-  const [{ questions, status, index, answer, scores }, dispatch] = useReducer(
+  const [{ questions, status, index, answer, scores, highScore, secondsRemaining }, dispatch] = useReducer(
     reducer,
     initialState
   );
@@ -81,10 +102,13 @@ export default function App() {
               dispatch={dispatch}
               answer={answer}
             />
-            <NextButton dispatch={dispatch} answer={answer} numQuestions={numQuestions} index={index}/>
+            <Footer>
+              <Timer dispatch={dispatch} secondsRemaining={secondsRemaining}/>
+              <NextButton dispatch={dispatch} answer={answer} numQuestions={numQuestions} index={index}/>
+            </Footer>
           </>
         )}
-        {status === "finished" && <FinishScreen scores={scores} totalScores={totalScores} />} 
+        {status === "finished" && <FinishScreen scores={scores} totalScores={totalScores} highScore={highScore} dispatch={dispatch}/>} 
       </Main>
     </div>
   );

@@ -9,14 +9,13 @@ export default function NextButton({ dispatch, answer, index, numQuestions }) {
         Next
       </button>
     );
-    if (index === numQuestions - 1)
-        return (
-          <button
-            onClick={() => dispatch({ type: "finished" })}
-            className="btn btn-ui"
-          >
-            Finshed
-          </button>
-        );
-    }
+  if (index === numQuestions - 1)
+    return (
+      <button
+        onClick={() => dispatch({ type: "finished" })}
+        className="btn btn-ui"
+      >
+        Finsh
+      </button>
+    );
 }
