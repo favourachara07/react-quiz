@@ -258,3 +258,119 @@ progress {
   font-size: inherit;
   padding: 0.8rem;
 }
+@media (max-width: 600px) {
+  .header {
+    flex-direction: row;
+    text-align: center;
+  }
+}
+/* index.css */
+
+/* Base styles */
+/* body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  background-color: #007bff;
+  color: white;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.main {
+  padding: 20px 0;
+}
+
+.timer {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.options button {
+  flex: 1 1 200px;
+  padding: 10px;
+  text-align: center;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.options button:hover {
+  background-color: #0056b3;
+}
+
+/* Media query for small screens (mobile devices) */
+/* @media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .header h1 {
+    font-size: 1.2rem;
+  }
+
+  .options button {
+    flex: 1 1 100%;
+    margin-bottom: 10px;
+  }
+
+  .timer {
+    font-size: 1.5rem;
+  }
+} */
+
+/* Media query for medium screens (tablets) */
+/* @media (min-width: 601px) and (max-width: 1024px) {
+  .header h1 {
+    font-size: 1.3rem;
+  }
+
+  .options button {
+    flex: 1 1 45%;
+  }
+
+  .timer {
+    font-size: 1.75rem;
+  }
+} */
+
+/* Media query for large screens (desktops) */
+/* @media (min-width: 1025px) {
+  .header h1 {
+    font-size: 1.5rem;
+  }
+
+  .options button {
+    flex: 1 1 200px;
+  }
+
+  .timer {
+    font-size: 2rem;
+  }
+} */ 
