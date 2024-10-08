@@ -18,7 +18,7 @@ const initialState = {
   answer: null,
   scores : 0,
   highScore: 0,
-  secondsRemaining: 10,
+  secondsRemaining: 300,
 };
 // all state transitons are handled in the reducer
 function reducer(state, action) {
